@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("chess-theme");
+        var lang = localStorage.getItem("chess-lang");
+        if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+        if (lang === "ru" || lang === "uz" || lang === "en") {
+          document.documentElement.setAttribute("data-lang", lang);
+          document.documentElement.setAttribute("lang", lang);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title data-i18n="titleLogin">Турнир «Zavokat-gambit» — проверка участника</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body class="page-login">
+  <div class="deco" aria-hidden="true">
+    <span>♞</span><span>♜</span><span>♝</span><span>♛</span><span>♚</span><span>♟</span>
+  </div>
+
+  <div class="prefs">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="ru" class="is-active" aria-pressed="true">RU</button>
+      <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="theme-btn" id="themeBtn" aria-label="Включить светлую тему">☀</button>
+  </div>
+
+  <div class="modal-layer is-open" id="loginLayer">
+    <section class="modal" aria-labelledby="loginTitle">
+      <p class="eyebrow" data-i18n="loginEyebrow">Турнир «Zavokat-gambit» · сезон 2026</p>
+
+      <div id="loginStep">
+        <h1 id="loginTitle" data-i18n="loginTitle">Проверка участника</h1>
+        <p class="muted" data-i18n="loginSubtitle">Введите свои инициалы, чтобы узнать результат турнира.</p>
+
+        <form id="loginForm" novalidate>
+          <label class="field">
+            <span data-i18n="loginLabel">Ваши инициалы</span>
+            <input id="nameInput" type="text" data-i18n-placeholder="loginPlaceholder"
+                   placeholder="Фамилия Имя Отчество" autocomplete="off" spellcheck="false" maxlength="80">
+          </label>
+          <p class="error" id="loginError" role="alert" aria-live="polite"></p>
+          <button class="btn btn-gold btn-block" type="submit" id="loginBtn" data-i18n="loginButton">Проверить результат</button>
+        </form>
+      </div>
+
+      <div class="step hidden" id="loaderStep" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="loader-title" data-i18n="loaderTitle">Проверяем турнирную таблицу…</p>
+        <p class="small muted" data-i18n="loaderNote">Это займёт несколько секунд</p>
+        <div class="progress"><span></span></div>
+      </div>
+
+      <div class="step hidden" id="resultStep">
+        <div class="crown" aria-hidden="true">♛</div>
+        <p class="eyebrow gold" data-i18n="resultEyebrow">Результат найден</p>
+        <h2 data-i18n="resultTitle">Поздравляем! Вы вошли в топ-50 лучших шахматистов турнира.</h2>
+        <p class="prize-line" data-i18n-html="prizeLine">Ваш приз — <b>ваучер на 150 000 сум</b></p>
+        <a class="btn btn-gold btn-block" href="prizes.html" data-i18n="prizesButton">Какие призы я могу получить</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

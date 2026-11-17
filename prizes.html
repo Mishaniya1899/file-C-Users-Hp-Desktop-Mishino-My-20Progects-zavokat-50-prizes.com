@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("chess-theme");
+        var lang = localStorage.getItem("chess-lang");
+        if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+        if (lang === "ru" || lang === "uz" || lang === "en") {
+          document.documentElement.setAttribute("data-lang", lang);
+          document.documentElement.setAttribute("lang", lang);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title data-i18n="prizesPageTitle">Призы турнира «Zavokat-gambit»</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/prizes.js" defer></script>
+</head>
+<body class="page-prizes">
+  <div class="deco" aria-hidden="true">
+    <span>♞</span><span>♜</span><span>♝</span><span>♛</span><span>♚</span><span>♟</span>
+  </div>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="index.html"><i>♛</i> <span data-i18n="brand">Zavokat-gambit</span></a>
+      <div class="head-right">
+        <div class="voucher" data-i18n-html="voucher">Ваш ваучер: <b>150 000 сум</b></div>
+        <div class="prefs">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang="ru" class="is-active" aria-pressed="true">RU</button>
+            <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button type="button" class="theme-btn" id="themeBtn" aria-label="Включить светлую тему">☀</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow" data-i18n="prizesEyebrow">Топ-50 · сезон 2026</p>
+      <h1 data-i18n="prizesTitle">Какие призы я могу получить</h1>
+      <p class="muted" data-i18n="prizesSubtitle">
+        Выберите приз и нажмите «Заказать» — все призы доступны по вашему ваучеру
+        на 150 000 сум. Курьер свяжется с вами в скором времени.
+      </p>
+    </section>
+
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>
+        <span data-i18n="footerTournament">Турнир «Zavokat-gambit»</span> ·
+        <a href="index.html" data-i18n="footerBack">Вернуться на главную</a>
+      </p>
+      <details class="credits">
+        <summary data-i18n="creditsSummary">Источники фотографий (Wikimedia Commons)</summary>
+        <ul>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Argentina_singing_anthem_-_ARG_v_CAN_-_2024-07-09.jpg" target="_blank" rel="noopener">Форма Аргентины 2024/25</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Spain_football_team_in_2025.jpg" target="_blank" rel="noopener">Форма Испании 2025/26</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Portugal_national_football_team_0866.jpg" target="_blank" rel="noopener">Форма Португалии 2025/26</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Uzbekistan_national_association_football_team_with_President_of_Uzbekistan_after_Uzbekistan-Qatar_match,_on_June_10,_2025.jpg" target="_blank" rel="noopener">Форма Узбекистана 2025/26</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Lionel_Messi_WC2022.jpg" target="_blank" rel="noopener">Месси</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_WC2022_-_02.jpg" target="_blank" rel="noopener">Роналду 2022</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo%27s_2008_Ballon_d%27Or_trophy,_Real_Madrid_Museum,_Santiago_Bernab%C3%A9u,_Madrid,_Spain_(Ank_Kumar,_Infosys_Limited)_02.jpg" target="_blank" rel="noopener">«Золотой мяч»</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Chess_game_Staunton_No._6_top_view.jpg" target="_blank" rel="noopener">Шахматная доска</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Chess_pieces_close_up.jpg" target="_blank" rel="noopener">Шахматы, чехол</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Volleyball_ball_-_le_ballon_de_volley-ball_-_%D9%83%D8%B1%D8%A9_%D8%A7%D9%84%D9%83%D8%B1%D8%A9_%D8%A7%D9%84%D8%B7%D8%A7%D8%A6%D8%B1%D8%A9_Esp%C3%A9rance_sportive_de_Tunis_photo2.jpg" target="_blank" rel="noopener">Волейбольный мяч</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Swimming_cap.jpg" target="_blank" rel="noopener">Шапка для плавания</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Cal%C3%A7%C3%A3o_de_Banho%2C_Acervo_do_Museu_Paulista_da_USP_%285%29.jpg" target="_blank" rel="noopener">Плавки</a></li>
+        </ul>
+      </details>
+    </div>
+  </footer>
+
+  <div class="modal-layer" id="confirmLayer" aria-hidden="true">
+    <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <p class="eyebrow gold" data-i18n="confirmEyebrow">Подтверждение</p>
+      <h2 id="confirmTitle" data-i18n="confirmTitle">Вы точно хотите заказать?</h2>
+      <p class="order-name" id="confirmProduct"></p>
+      <div class="modal-actions">
+        <button class="btn btn-gold" type="button" id="confirmYes" data-i18n="yes">Да</button>
+        <button class="btn btn-ghost" type="button" id="confirmNo" data-i18n="no">Нет</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-layer" id="doneLayer" aria-hidden="true">
+    <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="doneTitle">
+      <div class="check" aria-hidden="true">✓</div>
+      <h2 id="doneTitle" data-i18n="doneTitle">Заказ принят!</h2>
+      <p class="muted" data-i18n="doneText">В скором времени с вами свяжется курьер.</p>
+      <button class="btn btn-gold btn-block" type="button" id="doneOk" data-i18n="doneButton">Отлично</button>
+    </div>
+  </div>
+</body>
+</html>
